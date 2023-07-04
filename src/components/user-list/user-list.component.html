@@ -1,0 +1,23 @@
+<h1>User</h1>
+<table *ngIf="!(isLoading$ | async); else loading" class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of (users$ | async)">
+    <td>{{user.id}}</td>
+    <td>{{ user.name }}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center align-items-center" style="height: 100px">
+    <div class="spinner-border" style="width: 5rem; height: 5rem" role="status">
+    </div>
+  </div>
+</ng-template>
