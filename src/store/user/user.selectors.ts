@@ -13,3 +13,13 @@ export const selectIsLoading = createSelector(selectUserState, (state): boolean 
 export const selectUserInCreation = createSelector(selectUserState, (state): boolean => {
   return state.userInCreation
 })
+
+
+export const selectFirstValues = createSelector(selectUserState, (state): string[] => {
+  return state.firstValues
+})
+
+
+export const selectSecondValues = createSelector(selectUserState, (state): string[] => {
+  return state.secondValues
+})

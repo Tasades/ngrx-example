@@ -10,4 +10,7 @@ export interface UserState extends EntityState<User> {
   isLoading: boolean;
   userInCreation: boolean;
   error: null;
+
+  firstValues: string[];
+  secondValues: string[];
 }

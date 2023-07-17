@@ -7,11 +7,28 @@
     <label for="lastName" class="form-label">Last Name</label>
     <input type="text" class="form-control" formControlName="lastName" id="lastName">
   </div>
+
+  <div class="mb-3">
+    <select formControlName="firstSelect" class="form-select" aria-label="Default select example">
+      <option *ngFor="let firstValue of (firstValues$ |async)" [ngValue]="firstValue">{{firstValue}}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <select formControlName="secondSelect" class="form-select" aria-label="Default select example">
+      <option *ngFor="let secondValue of (secondValues$ |async)" [ngValue]="secondValue">{{secondValue}}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <button type="button" class="btn btn-primary" (click)="switchLists()">Switch Lists</button>
+  </div>
+
   <button *ngIf="!(isInCreation$ | async); else loading" type="submit" class="btn btn-primary">Submit</button>
   <ng-template #loading>
-  <button class="btn btn-primary" type="button" disabled>
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Creating..
-  </button>
+    <button class="btn btn-primary" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Creating..
+    </button>
   </ng-template>
 </form>
